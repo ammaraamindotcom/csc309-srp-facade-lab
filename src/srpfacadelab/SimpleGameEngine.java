@@ -33,6 +33,9 @@ public class SimpleGameEngine implements IGameEngine {
             
         else if (effectName.equals("lots_of_gore"))
             System.out.println("[Special Effect]: Ouch!! That hurts!!");
+        
+        else if (effectName.equals("blue_swirly"))
+            System.out.println("[Special Effect]: Blue Swirl!!!");
 
     }
 

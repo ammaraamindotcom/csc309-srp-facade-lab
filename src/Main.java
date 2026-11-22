@@ -1,27 +1,21 @@
-import srpfacadelab.IGameEngine;
-import srpfacadelab.RpgPlayer;
-import srpfacadelab.SimpleGameEngine;
+import srpfacadelab.GameFacade;
+import srpfacadelab.Item;
 
 public class Main {
 
     public static void main(String[] args) {
-        //This is meant to be simple and just show how you could instantiate the structure
 
-        IGameEngine game = new SimpleGameEngine();
-        RpgPlayer player1 = new RpgPlayer(game);
-        RpgPlayer player2 = new RpgPlayer(game);
-        ((SimpleGameEngine) game).addPlayer(player1);
-        ((SimpleGameEngine) game).addPlayer(player2);
+        GameFacade game = new GameFacade();
 
-        //Here you would create items
+        game.setMaxHealth(100);
+        game.setHealth(100);
 
-        //Here you would tell the history and make the game happen
+       Item sword = new Item(1, "Sword", 0, 20, 100, true, true);
 
-        //You could make players pick up items
-        //You could make players use items
-        //etc.
-        //You don't need to worry about it for the assignment
-        //This is only to show how the 'external world' (client code) would instantiate the core structure.
-        //In the assignment, you're supposed to improve the design and not instantiate a game
+        game.pickUpItem(sword);
+
+        game.takeDamage(50);
+
+        System.out.println("Player health: " + game.getHealth());
     }
 }
